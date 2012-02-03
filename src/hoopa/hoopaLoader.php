@@ -23,6 +23,9 @@ class hoopaLoader {
         $config = parse_ini_file($config_file);
         
         $config['data_dir'] = __DIR__.'/../../lockerroom/';
+        if (!file_exists($config['data_dir'])) {
+            mkdir($config['data_dir']);
+        }
         
         return $config;
     }
