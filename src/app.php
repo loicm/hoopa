@@ -1,4 +1,12 @@
 <?php
+/**
+ * Entry point. This is the script to run in cli mode (or use "hoopa" exe file instead)
+ * 
+ * @author Loic Mathaud <loic@mathaud.net>
+ * @link http://github.com/loicm/hoopa
+ */
+
+// Include needed stuff (FIXME use autoloading?)
 include __DIR__ .'/../vendors/IXR/IXR_Library.php';
 include __DIR__ .'/hoopa/hoopaLoader.php';
 include __DIR__ .'/hoopa/hoopaUtils.php';
