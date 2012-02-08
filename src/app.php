@@ -7,10 +7,12 @@
  */
 
 // Include needed stuff (FIXME use autoloading?)
-include __DIR__ .'/../vendors/IXR/IXR_Library.php';
-include __DIR__ .'/hoopa/hoopaLoader.php';
-include __DIR__ .'/hoopa/hoopaUtils.php';
-include __DIR__ .'/hoopa/hoopaCmd.php';
+define('HOOPA_PATH', __DIR__.'/');
+include HOOPA_PATH .'../vendors/IXR/IXR_Library.php';
+include HOOPA_PATH .'hoopa/config.php';
+include HOOPA_PATH .'hoopa/hoopaLoader.php';
+include HOOPA_PATH .'hoopa/hoopaUtils.php';
+include HOOPA_PATH .'hoopa/hoopaCmd.php';
 
 if ($_SERVER['argc'] < 2) {
     echo "Error: command is missing.\nRun ".$_SERVER['argv'][0]." help\n";
@@ -21,5 +23,6 @@ $argv = $_SERVER['argv'];
 $script_name = array_shift($argv); // shift the script name
 $command_name = array_shift($argv); // get the command name
 
-$config = hoopaLoader::get_config();
-hoopaLoader::run_command($command_name, $config);
+$config = new hoopa\config();
+$hoopa = new hoopa\hoopa();
+$hoopa->run($command_name, $config);
