@@ -89,7 +89,7 @@ class config {
      * @param  string $dir path to the directory
      */
     protected function createDataDir($dir) {
-        if (!file_exists($dir)) {
+        if (!is_dir($dir)) {
             mkdir($dir);
         }
     }
