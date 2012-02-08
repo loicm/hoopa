@@ -24,5 +24,5 @@ $script_name = array_shift($argv); // shift the script name
 $command_name = array_shift($argv); // get the command name
 
 $config = new hoopa\config();
-$hoopa = new hoopa\hoopa();
-$hoopa->run($command_name, $config);
+$hoopa = new hoopa\hoopa($config);
+$hoopa->run($command_name);
