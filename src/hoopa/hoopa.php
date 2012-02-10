@@ -23,13 +23,14 @@ class hoopa {
      * @param  string $command_name name of the command
      */
     public function run($command_name = 'help') {
-        if (!method_exists('commands', $command_name)) {
+        $cmd = new commands($this->config);
+
+        if (!method_exists($cmd, $command_name)) {
             echo 'Error: command '. $command_name .' does not exists'."\n";
             echo 'See '.$_SERVER['argv'][0].' help'."\n";
             exit(1);
         }
         
-        $cmd = new commands($this->config);
         $cmd->$command_name();
     }
 }
