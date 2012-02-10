@@ -1,6 +1,12 @@
 <?php
+namespace loicm\hoopa;
 
-class hoopaCmd {
+/**
+ * class managing the commands
+ * 
+ * @author Loic Mathaud <loic@mathaud.net>
+ */
+class commands {
     
     protected $config;
     
@@ -49,7 +55,7 @@ class hoopaCmd {
             $this->config['data_dir'].$data_file
         );
         
-        // Open editor (gedit)
+        // Open editor
         system($this->config['editor'].' '.$this->config['data_dir'].$data_file .' &> /dev/null');
     }
     
@@ -72,7 +78,7 @@ class hoopaCmd {
         }
         
         // Open editor
-        system('gedit '.$this->config['data_dir'].$data_file . ' &> /dev/null');
+        system($this->config['editor'].' '.$this->config['data_dir'].$data_file . ' &> /dev/null');
     }
     
     /**
