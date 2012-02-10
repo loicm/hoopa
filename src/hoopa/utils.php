@@ -1,6 +1,12 @@
 <?php
+namespace loicm\hoopa;
 
-class hoopaUtils {
+/**
+ * Utilities 
+ * 
+ * @author Loic Mathaud <loic@mathaud.net>
+ */
+class utils {
 
     /**
     * Return the html file from its name

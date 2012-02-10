@@ -12,7 +12,7 @@ include HOOPA_PATH .'../vendors/IXR/IXR_Library.php';
 include HOOPA_PATH .'hoopa/commands.php';
 include HOOPA_PATH .'hoopa/config.php';
 include HOOPA_PATH .'hoopa/hoopa.php';
-include HOOPA_PATH .'hoopa/hoopaUtils.php';
+include HOOPA_PATH .'hoopa/utils.php';
 
 if ($_SERVER['argc'] < 2) {
     echo "Error: command is missing.\nRun ".$_SERVER['argv'][0]." help\n";

@@ -41,13 +41,13 @@ class commands {
         $idea_name = $_SERVER['argv'][2];
         
         // Check an idea with this name does not exist
-        if (hoopaUtils::idea_exists($idea_name, $this->config)) {
+        if (utils::idea_exists($idea_name, $this->config)) {
             echo 'Error: an idea with this name already exists'."\n";
             exit(1);
         }
         
         // Get data file
-        $data_file = hoopaUtils::data_file($idea_name);
+        $data_file = utils::data_file($idea_name);
         
         // Copy template file into locker room
         copy(
@@ -71,7 +71,7 @@ class commands {
         $idea_name = $_SERVER['argv'][2];
         
         // Check idea exists
-        $data_file = hoopaUtils::idea_exists($idea_name, $this->config);
+        $data_file = utils::idea_exists($idea_name, $this->config);
         if (!$data_file) {
             echo 'Error: idea does not exist'."\n";
             exit(1);
@@ -85,7 +85,7 @@ class commands {
     * List ideas
     */
     public function ideas() {
-        $ideas = hoopaUtils::get_ideas($this->config);
+        $ideas = utils::get_ideas($this->config);
         
         foreach($ideas as $idea) {
             $idea = str_replace('.html', '', $idea);
@@ -111,10 +111,10 @@ class commands {
         $idea_name = $_SERVER['argv'][2];
         
         // Get name of the data file
-        $data_file = hoopaUtils::data_file($idea_name);
+        $data_file = utils::data_file($idea_name);
         
         // Get post id (if published)
-        $post_id = hoopaUtils::idea_published($idea_name, $this->config);
+        $post_id = utils::idea_published($idea_name, $this->config);
         
         // Get content from the data file
         if ($post_id) {
@@ -122,7 +122,7 @@ class commands {
         } else {
             $data_file = $this->config['data_dir'].$data_file;
         }
-        $content = hoopaUtils::get_file_content($data_file);
+        $content = utils::get_file_content($data_file);
         
         if ($content['description'] == '') {
             echo 'Error: no content to publish'."\n";
@@ -141,7 +141,7 @@ class commands {
             exit(1);
         }
         
-        $client = new IXR_Client($this->config['rpc_url']);
+        $client = new \IXR_Client($this->config['rpc_url']);
         
         // Publish post (edit)
         if ($post_id) {

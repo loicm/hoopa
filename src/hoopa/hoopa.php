@@ -23,7 +23,7 @@ class hoopa {
      * @param  string $command_name name of the command
      */
     public function run($command_name = 'help') {
-        $cmd = new commands($this->config);
+        $cmd = new commands($this->config->getConfig());
 
         if (!method_exists($cmd, $command_name)) {
             echo 'Error: command '. $command_name .' does not exists'."\n";
